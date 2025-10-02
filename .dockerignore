@@ -1,0 +1,25 @@
+# CloudType 배포용 .dockerignore
+node_modules
+npm-debug.log
+.git
+.gitignore
+README.md
+.env
+.nyc_output
+coverage
+.DS_Store
+*.log
+
+# Client 폴더 제외 (Server만 배포)
+client/
+.github/
+test-results/
+tests/
+
+# 불필요한 파일들
+*.out
+*.play*.out
+playwright.config.*
+eslint.config.*
+docker-compose.yml
+CLOUDINARY_SETUP.md
