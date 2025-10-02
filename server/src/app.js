@@ -10,7 +10,16 @@ const ordersRouter = require('./routes/orders');
 function createApp() {
   const app = express();
 
-  app.use(cors());
+  // CORS 설정 - 배포 환경에 맞게 조정
+  const corsOptions = {
+    origin: process.env.NODE_ENV === 'production' 
+      ? ['https://your-vercel-app.vercel.app', 'https://your-vercel-app.vercel.app/'] 
+      : ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  };
+  app.use(cors(corsOptions));
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(morgan('dev'));
