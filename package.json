@@ -1,0 +1,38 @@
+{
+  "name": "shopping-mall-demo",
+  "version": "1.0.0",
+  "description": "Shopping Mall Demo - Full Stack Application",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "start": "cd server && npm start",
+    "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\"",
+    "build": "cd client && npm run build",
+    "install:server": "cd server && npm install",
+    "install:client": "cd client && npm install",
+    "install:all": "npm run install:server && npm run install:client"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LINUSCHO/sungbin-shopping-mall-demo.git"
+  },
+  "keywords": [
+    "shopping-mall",
+    "e-commerce",
+    "react",
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "sungbin",
+  "license": "MIT"
+}
