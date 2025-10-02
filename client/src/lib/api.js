@@ -1,3 +1,6 @@
+// API 기본 URL 설정
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+
 const getAuthHeaders = () => {
   // auth 객체에서 토큰 추출
   let token = null;
@@ -18,13 +21,13 @@ const getAuthHeaders = () => {
 };
 
 export async function apiGet(path) {
-  const res = await fetch(`/api${path}`, { headers: getAuthHeaders() });
+  const res = await fetch(`${API_BASE_URL}/api${path}`, { headers: getAuthHeaders() });
   if (!res.ok) throw new Error(`GET ${path} failed: ${res.status}`);
   return res.json();
 }
 
 export async function apiPost(path, body) {
-  const res = await fetch(`/api${path}`, {
+  const res = await fetch(`${API_BASE_URL}/api${path}`, {
     method: 'POST',
     headers: getAuthHeaders(),
     body: JSON.stringify(body ?? {}),
@@ -34,7 +37,7 @@ export async function apiPost(path, body) {
 }
 
 export async function apiPut(path, body) {
-  const res = await fetch(`/api${path}`, {
+  const res = await fetch(`${API_BASE_URL}/api${path}`, {
     method: 'PUT',
     headers: getAuthHeaders(),
     body: JSON.stringify(body ?? {}),
@@ -44,7 +47,7 @@ export async function apiPut(path, body) {
 }
 
 export async function apiDelete(path) {
-  const res = await fetch(`/api${path}`, {
+  const res = await fetch(`${API_BASE_URL}/api${path}`, {
     method: 'DELETE',
     headers: getAuthHeaders(),
   });
