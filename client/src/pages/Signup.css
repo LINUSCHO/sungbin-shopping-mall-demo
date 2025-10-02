@@ -1,0 +1,51 @@
+/* 비밀번호 입력 필드 스타일 */
+.password-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.password-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.password-input.invalid {
+  border-color: #dc3545;
+}
+
+.password-input.invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
+/* 비밀번호 에러 메시지 */
+.password-error {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* 비밀번호 성공 메시지 */
+.password-success {
+  color: #28a745;
+  font-size: 12px;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .password-input {
+    font-size: 16px; /* 모바일에서 줌 방지 */
+  }
+  
+  .password-error,
+  .password-success {
+    font-size: 11px;
+  }
+}
